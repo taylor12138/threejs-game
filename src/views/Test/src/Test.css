@@ -1,0 +1,31 @@
+.tray__swatch {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+}
+.tray__slide {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  bottom: 0;
+}
+.options {
+  display: flex;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+}
+.options .option {
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(215, 60, 60, 0);
+}
+.options .option img {
+  width: 100px;
+  height: 100px;
+}
+.options .active-option {
+  border: 2px solid #d73c3c;
+}

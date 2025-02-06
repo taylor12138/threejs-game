@@ -1,0 +1,19 @@
+.tip {
+  position: fixed;
+  z-index: 999;
+  top: 100px;
+  left: 50%;
+  width: 600px;
+  margin-left: -300px;
+  transition: all 0.5s;
+  transform: translate(-100vw, 0);
+}
+.tip h1 {
+  color: #F6EFE8;
+}
+.tip p {
+  color: #3D382F;
+}
+.active {
+  transform: translate(0, 0);
+}

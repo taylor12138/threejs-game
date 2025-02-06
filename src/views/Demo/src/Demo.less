@@ -1,0 +1,160 @@
+@z-index1: 888;
+@z-index2: 999;
+.demo{
+  width: 100%;
+  height: 100%; 
+  margin: 0; 
+  overflow: hidden;
+  // background-color: rgb(0, 0, 0);
+  .board{
+    position: fixed;
+    display: flex;
+    z-index: @z-index1;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    .action{
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #ccc;
+      text-align: center;
+      cursor: pointer;
+    }
+    .action:hover{
+      transform: scale(120%);
+      background-color: #ccc;
+    }
+  }
+  .env{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: @z-index1;
+    top: 50%;
+    left: 0;
+    transform: translate(50%, -50%);
+    .option{
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid #ccc;
+      text-align: center;
+      cursor: pointer;
+    }
+    .option:hover{
+      transform: scale(120%);
+      background-color: #ccc;
+    }
+  }
+  .charactors{
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: @z-index2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .title-choose{
+      text-align: center;
+      width: 600px;
+		  height: 100px;
+		  font-size: 30px;
+		  background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
+		  border: 0;
+		  color: #fff;
+		  letter-spacing: 3px;
+		  line-height: 88px;
+		  box-shadow: 6px 0px 0px #00E6F6;
+		  outline: transparent;
+		  position: relative;
+      cursor: pointer;
+    }
+    .title-choose::after {
+		  --slice-0: inset(50% 50% 50% 50%);//设置六个分片
+		  --slice-1: inset(80% -6px 0 0);
+		  --slice-2: inset(50% -6px 30% 0);
+		  --slice-3: inset(10% -6px 85% 0);
+		  --slice-4: inset(40% -6px 43% 0);
+		  --slice-5: inset(80% -6px 5% 0);
+		  content: '';
+		  display: block;
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+		  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+		  clip-path: var(--slice-0);
+		}
+    .title-choose:hover::after {
+		  animation: 1s glitch;//设置延时1秒，定义glitch变量在在里面设置动画
+		  animation-timing-function: steps(2, end);
+		}
+		@keyframes glitch {
+		  0% { clip-path: var(--slice-1); transform: translate(-20px, -10px); }
+		  10% { clip-path: var(--slice-3); transform: translate(10px, 10px); }
+		  20% { clip-path: var(--slice-1); transform: translate(-10px, 10px); }
+		  30% { clip-path: var(--slice-3); transform: translate(0px, 5px); }
+		  40% { clip-path: var(--slice-2); transform: translate(-5px, 0px); }
+		  50% { clip-path: var(--slice-3); transform: translate(5px, 0px); }
+		  60% { clip-path: var(--slice-4); transform: translate(5px, 10px); }
+		  70% { clip-path: var(--slice-2); transform: translate(-10px, 10px); }
+		  80% { clip-path: var(--slice-5); transform: translate(20px, -10px); }
+		  90% { clip-path: var(--slice-1); transform: translate(-10px, 0px); }
+		  100% { clip-path: var(--slice-1); transform: translate(0); }
+		}
+    .options {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255,255,255,0.13);
+      border: 2px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 40px rgba(8,7,16,0.6);
+      .option{
+        width: 200px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+      @keyframes sun {
+          100%{
+              background-position: -400% 0;
+          }
+      }
+      .active::before{
+        content: "";
+        position: absolute;
+        left:-5px;
+        top: -5px;
+        right: -5px;
+        bottom: -5px;
+        // background: linear-gradient(90deg,#9370DB,#AFEEEE,#FFA500,#9370DB);
+        background:linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4); 
+        background-size:400%;
+        border-radius:50px;
+        filter: blur(10px);
+        z-index: -1;
+      }
+      .active{
+        color: rgb(255, 255, 255);
+        background: linear-gradient(90deg,#9370DB,#AFEEEE,#FFA500,#9370DB);
+        background-size: 400%;
+      }
+      .option:hover{
+        animation: sun 7s infinite;
+      }
+      .option:hover::before{
+          animation: sun 7s infinite;
+      }
+    }
+  }
+}
